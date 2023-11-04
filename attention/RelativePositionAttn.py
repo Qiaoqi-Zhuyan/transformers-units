@@ -4,6 +4,11 @@ import torch
 from torch import nn
 import einops
 
+'''
+相对位置编码
+1. 一个可学习的相对位置嵌入表表示不同的相对位置
+2. 计算相对位置得分, 将相对位置嵌入加到注意力分数上
+'''
 class Attention(nn.Module):
     def __init__(self, in_channel, out_channel, img_size, heads=8, head_channel=32, dropout=0.0):
         super(Attention, self).__init__()

@@ -61,6 +61,42 @@ class GCblock(nn.Module):
 
         return out
 
+# reference: https://paperswithcode.com/method/global-context-block
+class GlobalContextBlock(nn.Module):
+    def __init__(self, in_channel, expan_ration, fusion_type='add'):
+        super(GlobalContextBlock, self).__init__()
+        assert fusion_type == 'add' or fusion_type == 'mul'
+        self.fusion_type = fusion_type
+        self.in_channel = in_channel
+        self.hidden_dim = int(in_channel * expan_ration)
+        self.conv_v = nn.Sequential(
+            nn.Conv2d(self.in_channel, self.hidden_dim, 1, stride=1, bias=False),
+            nn.LazyBatchNorm2d([self.hidden_dim, 1, 1]),
+            nn.ReLU(),
+            nn.Conv2d(self.hidden_dim, self.in_channel, 1, stride=1, bias=False)
+        )
+
+        self.conv_k = nn.Conv2d(self.in_channel, self.hidden_dim, 1)
+        self.softmax = nn.Softmax(dim=1)
+        self.attn = nn.Sigmoid()
+
+    def forward(self, x):
+
+        key = self.softmax(self.conv_k(x))
+        key = einops.rearrange(key, "b 1 h w -> b (h w) 1")
+        query = einops.rearrange(x, "b c h w -> b c (h w)")
+        value = einops.rearrange(torch.matmul(key, query), "b (w h) 1 -> b c 1 1").contiguous()
+        value = self.conv_v(value)
+
+        if self.fusion_type == 'add':
+            return value + x
+
+        if self.fusion_type == 'mul':
+            return value * x
+
+
+
+
 
 
 

@@ -66,3 +66,15 @@ class Attention(nn.Module):
         out = self.out(out)
 
         return out
+
+if __name__ == '__main__':
+
+    x = torch.randn(1, 64, 18, 18)
+    x = einops.rearrange(x, 'b c h w -> b (h w) c')
+    norm = nn.LayerNorm(64)
+    print(x.shape)
+    attn = Attention(64, 96, (18, 18))
+
+    y = attn(x)
+    print(y)
+    print(y.shape)

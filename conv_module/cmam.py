@@ -19,7 +19,7 @@ class ChannelAttention(nn.Module):
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
         self.max_pool = nn.AdaptiveAvgPool2d(1)
 
-        self.attn = nn.Sigmoid()
+        self.attn = nn.Softmax()
 
     def forward(self, x):
         max_y = self.mlp(self.max_pool(x))
@@ -47,7 +47,7 @@ class CBAMBlock(nn.Module):
     def __init__(self, in_channel, reduction=16, kernel_size=49):
         super(CBAMBlock, self).__init__()
         self.ca = ChannelAttention(in_channel=in_channel, reduction=reduction)
-        self.sa = ChannelAttention(kernel_size=kernel_size)
+        self.sa = SpatialAttention(kernel_size=kernel_size)
 
     def forward(self, x):
         b, c, _, _ = x.shape
@@ -56,3 +56,9 @@ class CBAMBlock(nn.Module):
         return x + y
 
 
+if __name__ == '__main__':
+    x = torch.randn(1, 3, 224, 224)
+    cbam = CBAMBlock(3)
+    y = cbam(x)
+    print(y)
+    print(y.shape)

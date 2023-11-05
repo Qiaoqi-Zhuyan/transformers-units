@@ -14,6 +14,7 @@ GCNet, 类似SEModule
 
 Non-local
 '''
+# no longer use ...
 class GCblock(nn.Module):
     def __init__(self, in_channel, expan_ration=16, fusion_type='add'):
         super(GCblock, self).__init__()
@@ -33,9 +34,6 @@ class GCblock(nn.Module):
             nn.ReLU(),
             nn.Conv2d(self.hidden_dim, self.in_channel, 1, stride=1, bias=False)
         )
-
-        self.attn = nn.Sigmoid()
-
 
     def spatial_pool(self, x):
         x_ = x
@@ -61,6 +59,8 @@ class GCblock(nn.Module):
 
         return out
 
+
+
 # reference: https://paperswithcode.com/method/global-context-block
 class GlobalContextBlock(nn.Module):
     def __init__(self, in_channel, expan_ration, fusion_type='add'):
@@ -78,7 +78,6 @@ class GlobalContextBlock(nn.Module):
 
         self.conv_k = nn.Conv2d(self.in_channel, self.hidden_dim, 1)
         self.softmax = nn.Softmax(dim=1)
-        self.attn = nn.Sigmoid()
 
     def forward(self, x):
 
@@ -93,15 +92,3 @@ class GlobalContextBlock(nn.Module):
 
         if self.fusion_type == 'mul':
             return value * x
-
-
-
-
-
-
-
-
-
-
-
-

@@ -47,7 +47,7 @@ class Attention(nn.Module):
 
     def forward(self, x):
         qkv = self.to_qvk(x).chunk(3, dim=-1)
-        q, k, v = map(lambda t: einops.rearrange(t, 'b n (h d) -> b h n d', h=self.heads) , qkv)
+        q, k, v = map(lambda t: einops.rearrange(t, 'b n (h d) -> b h n d', h=self.heads), qkv)
 
         dots = torch.matmul(q, k.transpose(-1, -2)) * self.scale
 

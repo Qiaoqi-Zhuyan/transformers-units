@@ -103,7 +103,7 @@ class TransformerBlock(nn.Module):
             nn.Dropout(dropout)
         )
 
-        self.feed_forward = nn.Sequential(
+        self.FFN = nn.Sequential(
             Rearrange('b c h w -> b (h w) c'),
             nn.LayerNorm(out_channel),
             self.feed_forward,
@@ -129,7 +129,7 @@ class TransformerBlock(nn.Module):
 
             x = x + self.attn(x)
 
-        x = x + self.feed_forward(x)
+        x = x + self.FFN(x)
 
         return x
 
@@ -160,7 +160,7 @@ class Transformer(nn.Module):
             x = ff(x) + x
 
         return self.norm(x)
-    
+
 
 if __name__ == '__main__':
     x = torch.randn(1, 3, 18, 18)

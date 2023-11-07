@@ -40,7 +40,7 @@
       <recent name="E:\transformers-units\conv_module" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MA">
+  <component name="RunManager" selected="Python.swin_transformer">
     <configuration name="MA" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="transformers-units" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,28 +77,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/attention/RelativePositionAttn.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="cmam" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="transformers-units" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/conv_module" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/conv_module/cmam.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -173,13 +151,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="swin_transformer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="transformers-units" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/attention" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/attention/swin_transformer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.swin_transformer" />
         <item itemvalue="Python.MA" />
         <item itemvalue="Python.rename_files" />
         <item itemvalue="Python.rename-file" />
         <item itemvalue="Python.RelativePositionAttn" />
-        <item itemvalue="Python.cmam" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +195,10 @@
       <workItem from="1699163670614" duration="13115000" />
       <workItem from="1699187020817" duration="11000" />
       <workItem from="1699187049668" duration="11000" />
-      <workItem from="1699187063543" duration="4967000" />
+      <workItem from="1699187063543" duration="7985000" />
+      <workItem from="1699238731165" duration="4007000" />
+      <workItem from="1699249675403" duration="15323000" />
+      <workItem from="1699322654407" duration="12492000" />
     </task>
     <servers />
   </component>
@@ -218,6 +221,7 @@
     <SUITE FILE_PATH="coverage/transformers_units$MA.coverage" NAME="MA Coverage Results" MODIFIED="1699200045408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/attention" />
     <SUITE FILE_PATH="coverage/transformers_units$RelativePositionAttn.coverage" NAME="RelativePositionAttn Coverage Results" MODIFIED="1699108787281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/attention" />
     <SUITE FILE_PATH="coverage/transformers_units$rename_file.coverage" NAME="rename-file Coverage Results" MODIFIED="1699181883557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/transformers_units$swin_transformer.coverage" NAME="swin_transformer Coverage Results" MODIFIED="1699343084890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/attention" />
     <SUITE FILE_PATH="coverage/transformers_units$cmam.coverage" NAME="cmam Coverage Results" MODIFIED="1699104970426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/conv_module" />
   </component>
 </project>

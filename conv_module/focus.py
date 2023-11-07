@@ -31,7 +31,6 @@ class Focus(nn.Module):
         :param x: [b, c, w, h]
         :return: x' [b, 4c, w//2, h//2]
         '''
-
         x_0 = x[:, :, 0::2, 0::2]
         x_1 = x[:, :, 1::2, 0::2]
         x_2 = x[:, :, 0::2, 1::2]

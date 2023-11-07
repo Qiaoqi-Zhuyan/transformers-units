@@ -104,10 +104,3 @@ class InvertedResiduals(nn.Module):
             return self.proj(self.proj(x)) + self.conv(self.norm(x))
         else:
             return x + self.conv(self.norm(x))
-
-
-
-
-
-
-

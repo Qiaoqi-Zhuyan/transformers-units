@@ -99,4 +99,5 @@ class TverskyLoss(_Loss):
         return loss.mean() ** self.gamma
 
 if __name__ == '__main__':
-    x = torch.randn(1, 3, 224, 224)
+    y_pred = torch.randn([1, 1, 0, 0])
+    y_true = torch.randn([0, 0, 1, 1])
